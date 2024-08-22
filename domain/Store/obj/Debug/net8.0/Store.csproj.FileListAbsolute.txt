@@ -1,0 +1,12 @@
+D:\MVC\online_store\domain\Store\bin\Debug\net8.0\Store.deps.json
+D:\MVC\online_store\domain\Store\bin\Debug\net8.0\Store.dll
+D:\MVC\online_store\domain\Store\bin\Debug\net8.0\Store.pdb
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\Store.GeneratedMSBuildEditorConfig.editorconfig
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\Store.AssemblyInfoInputs.cache
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\Store.AssemblyInfo.cs
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\Store.csproj.CoreCompileInputs.cache
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\Store.sourcelink.json
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\Store.dll
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\refint\Store.dll
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\Store.pdb
+D:\MVC\online_store\domain\Store\obj\Debug\net8.0\ref\Store.dll
