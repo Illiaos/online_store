@@ -8,7 +8,7 @@ namespace Store.Memory
         {
             new Book(1, "Art Of Programming"),
             new Book(2, "Refactoring"),
-            new Book(3, "C PRogramming Language"),
+            new Book(3, "C Programming Language"),
         };
 
         public Book[] GetAllByTitle(string titlePart)
