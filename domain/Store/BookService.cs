@@ -23,5 +23,10 @@ namespace Store
             }
             return bookRepository.GetAllByTitleOrAuthor(query);
         }
+
+        public Book GetById(int id)
+        {
+            return bookRepository.GetById(id);
+        }
     }
 }
