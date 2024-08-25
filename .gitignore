@@ -13,6 +13,8 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+.vs\online_store\v17
+
 # Mono auto generated files
 mono_crash.*
 
