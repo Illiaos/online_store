@@ -1,0 +1,17 @@
+﻿@model OrderModel
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1>@ViewData["Title"]</h1>
+@foreach (var item in Model.Items)
+{
+    <p>Title: @item.Title </p>
+    <p>Author: @item.Author </p> 
+    <p>Amount: @item.Count Price: @item.Price</p>
+    <br />
+}
+
+<p>Total Amount @Model.TotalCount</p>
+<p>Total Price @Model.TotalPrice</p>

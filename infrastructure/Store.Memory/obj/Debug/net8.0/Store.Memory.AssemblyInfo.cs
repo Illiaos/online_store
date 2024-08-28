@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Store.Memory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1eddd88d801db05b468636e37a918ce51cdda5d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e93174d0c745c19f21bcb50665c74c84f1cb183c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Store.Memory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Store.Memory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

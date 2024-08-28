@@ -11,6 +11,14 @@ namespace Store.Memory
             new Book(3, "ISBN 12312-31233", "D. Kernighan", "C Programming Language", "Description for a C Programming Language", 30m),
         };
 
+        public Book[] GetAllByIds(int[] ids)
+        {
+            var foundBooks = from book in books
+                   join bookId in ids on book.Id equals bookId
+                   select book;
+            return foundBooks.ToArray();
+        }
+
         public Book[] GetAllByISBN(string ISBN)
         {
             return books.Where(book => book.ISBN == ISBN).ToArray();
