@@ -20,15 +20,13 @@
                 @{
                     Cart cart;
 
-                    if (!Context.Session.TryGetCart(out cart)) cart = new Cart();
-
-                    if (cart.Items.Count == 0)
+                    if (Context.Session.TryGetCart(out cart) && cart.TotalCount > 0)
                     {
-                        @:Empty
+                        <a href="">Amount: @cart.TotalPrice Price: @cart.TotalPrice</a>
                     }
                     else
                     {
-                        @:Amount: @cart.Items.Count Price: @cart.Amount
+                        @:Empty
                     }
                 }
             </span>

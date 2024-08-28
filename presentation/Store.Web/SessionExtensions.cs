@@ -1,5 +1,6 @@
 ﻿using Store.Web.Models;
 
+#pragma warning disable
 namespace Store.Web
 {
     public static class SessionExtensions
@@ -13,34 +14,29 @@ namespace Store.Web
             using (var stream = new MemoryStream())
             using (var writer = new BinaryWriter(stream, System.Text.Encoding.UTF8, true))
             {
-                writer.Write(value.Items.Count);
-                foreach (var item in value.Items)
-                {
-                    writer.Write(item.Key);
-                    writer.Write(item.Value);
-                }
+                writer.Write(value.OrderId);
+                writer.Write(value.TotalCount);
+                writer.Write(value.TotalPrice);
 
-                writer.Write(value.Amount);
                 session.Set(key, stream.ToArray());
             }
         }
 
         public static bool TryGetCart(this ISession session, out Cart value)
         {
-            value = new Cart();
-            if (session.TryGetValue(key, out byte[] buffer) == false) return false;
+            if (session.TryGetValue(key, out byte[] buffer) == false)
+            {
+                value = new Cart(-1);
+                return false;
+            }
+
             using (var stream = new MemoryStream(buffer))
             using (var readed = new BinaryReader(stream, System.Text.Encoding.UTF8, true))
             {
-                var length = readed.ReadInt32();
-                for (int i = 0; i < length; i++)
-                {
-                    var bookId = readed.ReadInt32();
-                    var amount = readed.ReadInt32();
-
-                    value.Items.Add(bookId, amount);
-                }
-                value.Amount = readed.ReadDecimal();
+                var orderId = readed.ReadInt32();
+                value = new Cart(orderId);
+                value.TotalCount = readed.ReadInt32();
+                value.TotalPrice = readed.ReadDecimal();
             }
             return true;
         }
