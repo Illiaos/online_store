@@ -5,13 +5,37 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-@foreach (var item in Model.Items)
-{
-    <p>Title: @item.Title </p>
-    <p>Author: @item.Author </p> 
-    <p>Amount: @item.Count Price: @item.Price</p>
-    <br />
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Price</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Remove</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td scope="row">@item.Title</td>
+            <td scope="row">@item.Author</td>
+            <td scope="row">@item.Count</td>
+            <td scope="row">@item.Price</td>
+            <form action="@Url.Action("EditBook", "Order")" method="post">
+                <input type="hidden" name="bookId" value="@item.BookId" />
+                <input type="hidden" name="count" value="1" />
+                <td scope="row"><button type="submit" class="btn btn-success">Edit</button></td>
+            </form>
+            
+            <form action="@Url.Action("RemoveItem", "Order")" method="post">
+                <input type="hidden" name="bookId" value="@item.BookId" />
+                <td scope="row"><button type="submit" class="btn btn-danger">Remove</button></td>
+            </form>
+        </tr>
+    }
+</table>
 
 <p>Total Amount @Model.TotalCount</p>
 <p>Total Price @Model.TotalPrice</p>

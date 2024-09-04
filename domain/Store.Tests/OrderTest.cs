@@ -68,5 +68,33 @@ namespace Store.Tests
             Order order = new Order(1, collection);
             Assert.Equal(500, order.TotalPrice);
         }
+
+        [Fact]
+        public void Get_WithExistingItem_ReturnsItem()
+        {
+            var order = new Order(1, new[]
+            {
+                new OrderItem(1, 3, 10m),
+                new OrderItem(2, 5, 100m)
+            });
+
+            OrderItem orderItem = order.Get(1);
+            Assert.Equal(3, orderItem.Count);
+
+            orderItem = order.Get(2);
+            Assert.Equal(5, orderItem.Count);
+        }
+
+        [Fact]
+        public void Get_ThrowException_Order_NotExist()
+        {
+            var order = new Order(1, new[]
+{
+                new OrderItem(1, 3, 10m),
+                new OrderItem(2, 5, 100m)
+            });
+
+            Assert.Throws<InvalidOperationException>(() => order.Get(4));
+        }
     }
 }
